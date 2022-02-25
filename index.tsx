@@ -1,4 +1,4 @@
-import {
+import React, {
   Dispatch,
   Fragment,
   ReactNode,
@@ -15,7 +15,7 @@ type Props = {
   setOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-export function useOnKeyPress(
+function useOnKeyPress(
   keyCode: string,
   action: () => void,
   allowInput: boolean = true
