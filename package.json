@@ -1,6 +1,6 @@
 {
   "name": "@andrewthehan/use-modal",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "A React hook for modals.",
   "main": "build/index.js",
   "scripts": {
@@ -18,6 +18,9 @@
     "url": "https://github.com/andrewthehan/use-modal/issues"
   },
   "homepage": "https://github.com/andrewthehan/use-modal#readme",
+  "dependencies": {
+    "@andrewthehan/portal": "^0.0.5"
+  },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.5",
@@ -42,8 +45,5 @@
       "@babel/react",
       "@babel/preset-typescript"
     ]
-  },
-  "dependencies": {
-    "@andrewthehan/portal": "^0.0.3"
   }
 }
