@@ -1,16 +1,17 @@
+import Portal from "@andrewthehan/portal";
 import React, {
   Dispatch,
   Fragment,
+  ReactElement,
   ReactNode,
   SetStateAction,
   useEffect,
   useMemo,
   useState,
 } from "react";
-import Portal from "@andrewthehan/portal";
 
 type Props = {
-  children: ReactNode;
+  children: ReactElement;
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 };
@@ -77,18 +78,18 @@ function Modal({ children, open, setOpen }: Props) {
 }
 
 export default function useModal(
-  contentProvider: () => ReactNode
-): [() => void, ReactNode, boolean] {
+  contentProvider: () => ReactElement
+): [Dispatch<SetStateAction<boolean>>, ReactNode, boolean] {
   const [open, setOpen] = useState(false);
 
   const modal: ReactNode = useMemo(
     () => (
       <Modal open={open} setOpen={setOpen}>
-        {contentProvider()}
+        {open ? contentProvider() : <></>}
       </Modal>
     ),
     [open, contentProvider]
   );
 
-  return [() => setOpen(true), modal, open];
+  return [setOpen, modal, open];
 }
